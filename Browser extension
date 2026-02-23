@@ -1,0 +1,104 @@
+# Browser-security
+This code tells us about how we can prevent our browsing security 
+
+
+print("="*70)
+print("      BROWSER EXTENSION SECURITY CHECK TOOL")
+print("="*70)
+
+print("\nObjective:")
+print("Learn to spot and remove potentially harmful browser extensions.
+
+print("Step 1: Open your browser's extension manager manually.")
+print("Chrome  -> Type: chrome://extensions/ in address bar")
+print("Firefox -> Type: about:addons in address bar")
+
+browser = input("\nEnter your browser name (Chrome/Firefox): ")
+
+
+print("\nStep 2: Review all installed extensions carefully.")
+print("Enter extension names one by one.")
+print("Type 'done' when finished.\n")
+
+extensions = []
+
+while True:
+    ext = input("Enter extension name: ")
+    if ext.lower() == "done":
+        break
+    extensions.append(ext)
+
+
+
+print("\nStep 3: Check permissions of each extension.")
+print("Common suspicious permissions:")
+print("- Read and change all your data on websites")
+print("- Access to browsing history")
+print("- Manage downloads")
+print("- Access clipboard")
+print("- Access file system\n")
+
+suspicious_extensions = []
+
+for ext in extensions:
+    print(f"\nChecking Extension: {ext}")
+    permission = input("Does it have high-risk permissions? (yes/no): ")
+    reviews = input("Are reviews poor or developer unknown? (yes/no): ")
+    used = input("Do you regularly use this extension? (yes/no): ")
+
+    if permission.lower() == "yes" or reviews.lower() == "yes" or used.lower() == "no":
+        suspicious_extensions.append(ext)
+
+removed_extensions = []
+
+print("\nStep 4: Identify unused or suspicious extensions.")
+
+for ext in suspicious_extensions:
+    choice = input(f"Do you want to remove '{ext}'? (yes/no): ")
+    if choice.lower() == "yes":
+        removed_extensions.append(ext)
+
+
+
+print("\nStep 5: Please restart your browser after removing extensions.")
+print("Check if browser performance improves.\n")
+
+print("Step 6: How malicious extensions can harm users:")
+print("- Steal passwords")
+print("- Track browsing activity")
+print("- Inject ads or malware")
+print("- Redirect websites")
+print("- Steal personal information\n")
+
+
+print("="*70)
+print("               SECURITY REPORT")
+print("="*70)
+
+print(f"\nBrowser Used: {browser}")
+print(f"Total Extensions Reviewed: {len(extensions)}")
+print(f"Suspicious Extensions Found: {len(suspicious_extensions)}")
+print(f"Extensions Removed: {len(removed_extensions)}")
+
+if removed_extensions:
+    print("\nRemoved Extensions List:")
+    for ext in removed_extensions:
+        print("-", ext)
+else:
+    print("\nNo extensions were removed.")
+
+print("\nOutcome:")
+print("You are now aware of browser security risks and how to manage extensions.")
+
+print("\nInterview Preparation Answers:")
+print("1. Extensions pose risks by accessing sensitive data.")
+print("2. Permissions like 'read all website data' are risky.")
+print("3. Install extensions only from official stores.")
+print("4. Extension sandboxing isolates extensions from system files.")
+print("5. Yes, malicious extensions can steal passwords.")
+print("6. Update extensions via official browser store only.")
+print("7. Extensions modify browser features; plugins integrate external content.")
+print("8. Report malicious extensions in the browser's extension store.")
+
+print("\nTask Completed Successfully!")
+print("="*70)
